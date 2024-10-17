@@ -1,11 +1,14 @@
-#       project:    rpsls.py
-#       author:     Natalie Taylor <ntaylor2701004@woonsocketschools.com>
-#       date written: 10/8/24
-#
-#   description: Rock, Paper, Scissors, Lizard, Spock for 2 players
+"""
+             project: rpsls.py
+              author: Natalie Taylor <ntaylor2701004@woonsocketschools.com>
+        date written: 10/8/24
+ 
+    description: Rock, Paper, Scissors, Lizard, Spock for 2 players
+"""
 
 print("Welcome to Rock Paper Scissors Lizard Spock!")
-print("""The rules are simple:
+print("""
+        The rules are simple:
         rock beats scissors,
         rock beats lizard,
         spock beats rock,
@@ -14,9 +17,9 @@ print("""The rules are simple:
         lizard beats paper,
         scissors beats paper,
         scissors beats lizard,
-        spock beats scissors,
-        and lizard beats spock.
-        """)
+        spock beats scissors, and
+        lizard beats spock.
+""")
 
 
 print()
@@ -26,18 +29,21 @@ score1 = score2 = 0
 isPlaying = True
 print()
 
-while isPlaying:
-    print("""For this game, youll need to insert:
+while isPlaying is True:
+    print("""
+            For this game, youll need to insert:
             R for rock
             P for paper
             S for scissors
             L for lizard
-            SP for spock""")
+            SP for spock
+     """)
     weaponOne = input("Player one, choose your weapon: ")
     weaponTwo = input("Player two, choose your weapon: ")
 
     print()
-
+    if weaponOne == weaponTwo :
+            # Draw
     if weaponOne == "R":
         if weaponTwo == "R":
             print("Its a draw!")
@@ -54,7 +60,7 @@ while isPlaying:
             print("Paper beats Rock", playerTwo, "wins!")
             score2 = score2 + 1
 
-    if weaponOne == "S":
+     elif weaponOne == "S":
         if weaponTwo == "S":
             print("Its a draw!")
         elif weaponTwo == "R":
@@ -70,7 +76,7 @@ while isPlaying:
             print("Scissors beats Paper", playerOne, "wins!")
             score1 = score1 + 1
 
-    if weaponOne == "P":
+    elif weaponOne == "P":
         if weaponTwo == "P":
             print("Its a draw!")
         elif weaponTwo == "R":
@@ -86,7 +92,7 @@ while isPlaying:
             print("Scissors beats Paper", playerTwo, "wins!")
             score2 = score2 + 1
 
-    if weaponOne == "L":
+   elif weaponOne == "L":
         if weaponTwo == "L":
             print("Its a draw!")
         elif weaponTwo == "R":
@@ -102,7 +108,7 @@ while isPlaying:
             print("Scissors beats Lizard", playerTwo, "wins!")
             score2 = score2 + 1
 
-    if weaponOne == "SP":
+    else : # weaponOne == "SP":
         if weaponTwo == "SP":
             print("Its a draw!")
         elif weaponTwo == "R":
@@ -119,15 +125,16 @@ while isPlaying:
              score2 = score2 + 1
 
     print()
-    print(playerOne, "score is", score1)
+    print(f"{playerOne}, your score is {score1} \n")
     print(playerTwo, "score is", score2)
 
     ask = input("Would you like to play another round? (Type Yes Or No): ")
     if ask != "Yes":
         isPlaying = False
+# End of While loop
 
 print()
 if score1 > score2:
-    print(playerOne, "wins!")
+    print(f"{playerOne} wins!")
 else:
     print(playerTwo, "wins!")
